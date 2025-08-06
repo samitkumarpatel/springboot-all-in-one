@@ -1,0 +1,32 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      topic: test
+      group-id: group_id
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://localhost:3000/oauth2/jwks}
+  application:
+    name: springboot-test
+    messages:
+      basicGreetMessage: Hello, There!
+    order-service:
+      host: http://localhost:9090
+    metadata:
+      url: http://localhost:9090
+      uri: /metadata
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/springboot-test
+    username: postgres
+    password: postgres
+
+
