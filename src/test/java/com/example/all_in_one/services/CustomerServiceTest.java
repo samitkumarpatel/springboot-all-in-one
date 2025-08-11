@@ -1,13 +1,13 @@
 package com.example.all_in_one.services;
 
-import com.example.all_in_one.models.Customer;
 import com.example.all_in_one.clients.orderservice.Order;
+import com.example.all_in_one.models.Customer;
 import com.example.all_in_one.repositories.CustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -21,10 +21,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 public class CustomerServiceTest {
 
-    @MockBean
+    @MockitoBean
     private CustomerRepository customerRepository;
 
-    @MockBean
+    @MockitoBean
     private OrderService orderService;
 
     private CustomerService customerService;

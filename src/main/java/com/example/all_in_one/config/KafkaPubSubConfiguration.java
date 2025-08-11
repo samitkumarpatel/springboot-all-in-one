@@ -55,6 +55,7 @@ public class KafkaPubSubConfiguration<K,V> {
                 ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, keyDeSerializer,
                 ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, valueDeSerializer,
                 ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"
+
         );
         ReceiverOptions<K,V> receiverOptions =
                 ReceiverOptions.<K,V>create(receiverProperties)
